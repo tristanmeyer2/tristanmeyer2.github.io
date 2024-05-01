@@ -48,6 +48,17 @@ class LinearModel:
     
 class LogisticRegression(LinearModel):
     def loss(self, X, y):
+        """
+        Compute the empirical risk of the model using the score function. 
+
+        ARGUMENTS: 
+            X, torch.Tensor: the feature matrix. X.size() == (n, p), 
+            where n is the number of data points and p is the 
+            number of features. This implementation always assumes 
+            that the final column of X is a constant column of 1s. 
+
+            y, torch.Tensor: the target vector.  y.size() = (n,). The possible labels for y are {0, 1}
+        """
         def sig(s):
             calc = 1 / (1 + torch.exp(-s)) 
             calc[calc == 1] = 0.9999999
@@ -62,6 +73,9 @@ class LogisticRegression(LinearModel):
         return empirical_risk(y_hat, y, X)
     
     def grad(self, X, y):
+        """
+        Computing the gradient of the empirical risk
+        """
         def sig(s):
             return 1 / (1 + torch.exp(-s))
         s = self.score(X) 
@@ -72,6 +86,10 @@ class GradientDescentOptimizer():
         self.model = model 
 
     def step(self, X, y, alpha, beta):
+        """
+        Compute one step of the logistic update using the feature matrix X, target vector y,
+        and alpha and beta values. 
+        """
         w_temp = torch.clone(self.model.w)
         grad = self.model.grad(X,y)
         self.model.w = self.model.w - (alpha*grad) + (beta*(self.model.w - self.model.w_prev))
