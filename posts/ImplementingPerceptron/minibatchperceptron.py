@@ -80,6 +80,7 @@ class MiniBatchPerceptronOptimizer:
         Compute one step of the perceptron update using the feature matrix X 
         and target vector y. 
         """
-        loss = self.model.loss(x_ix,y_ix)
+        
         self.model.w = self.model.w+(a/k)*self.model.grad(x_ix, y_ix, k)
+        loss = self.model.loss(x_ix,y_ix)
         return loss
