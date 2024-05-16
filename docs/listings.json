@@ -3,10 +3,10 @@
     "listing": "/index.html",
     "items": [
       "/posts/OptimalDecisionMaking/OptimalDecisionMaking.html",
+      "/posts/NewtMethodLogReg/NewtonsMethodLogReg.html",
       "/posts/LogisticRegression/LogisticRegression.html",
       "/posts/ImplementingPerceptron/ImplementingPerceptron.html",
-      "/posts/PalmerPenguins/ClassifyingPalmerPenguins.html",
-      "/posts/example-blog-post/index.html"
+      "/posts/PalmerPenguins/ClassifyingPalmerPenguins.html"
     ]
   }
 ]
