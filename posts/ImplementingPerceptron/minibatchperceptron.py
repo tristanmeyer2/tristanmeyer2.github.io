@@ -65,7 +65,7 @@ class MiniBatchPerceptron(LinearModel):
         misclassified = torch.where(y * y_hat <= 0, 1.0, 0)
         return misclassified.mean()
 
-    def grad(self, X, y, k):
+    def grad(self, X, y):
         s_i = self.score(X) 
         return torch.where(y@s_i < 0, y@X, 0.0)
 
@@ -81,6 +81,6 @@ class MiniBatchPerceptronOptimizer:
         and target vector y. 
         """
         
-        self.model.w = self.model.w+(a/k)*self.model.grad(x_ix, y_ix, k)
+        self.model.w = self.model.w+(a/k)*self.model.grad(x_ix, y_ix)
         loss = self.model.loss(x_ix,y_ix)
         return loss

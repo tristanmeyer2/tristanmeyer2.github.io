@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/DataPoisoning/FraudDetection.html",
       "/posts/OptimalDecisionMaking/OptimalDecisionMaking.html",
       "/posts/NewtMethodLogReg/NewtonsMethodLogReg.html",
       "/posts/LogisticRegression/LogisticRegression.html",
